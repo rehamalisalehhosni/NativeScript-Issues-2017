@@ -13,14 +13,15 @@ exports.onLoaded = onLoaded;
 
 exports.onTap = function (args) {
   
-    var content =   `<Envelope xmlns = "http://schemas.xmlsoap.org/soap/envelope/">` +
+    var content =   `<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">` +
                     `<Header/>` +
                     `<Body>` +
-                        `<login Xmlns = "urn: partner.soap.sforce.com">` +
-                            `<username> consultics.group@precisionperu.com.testperu </username>` +
-                            `<password> Consultics123XHgM90vJ8v1YUyrRVG15RPTw0 </password>` +
+                        `<login Xmlns="urn:partner.soap.sforce.com">` +
+                            `<username>consultics.group@precisionperu.com.testperu</username>` +
+                            `<password>Consultics123XHgM90vJ8v1YUyrRVG15RPTw0</password>` +
                         `</login>` +
-                    `</Body>`;
+                    `</Body>` +
+                    '</Envelope>';
 
     http.request({
         url: "https://test.salesforce.com/services/Soap/u/30.0",
@@ -39,5 +40,3 @@ exports.onTap = function (args) {
         console.log('http.request error: ' + error)
     })
 }
-
-
