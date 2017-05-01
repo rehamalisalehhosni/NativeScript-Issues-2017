@@ -18,7 +18,7 @@ exports.onTap = function (args) {
                     `<Body>` +
                         `<login Xmlns="urn:partner.soap.sforce.com">` +
                             `<username>consultics.group@precisionperu.com.testperu</username>` +
-                            `<password>Consultics123XHgM90vJ8v1YUyrRVG15RPTw0</password>` +
+                            `<passwogit pushrd>Consultics123XHgM90vJ8v1YUyrRVG15RPTw0</password>` +
                         `</login>` +
                     `</Body>` +
                     '</Envelope>';
