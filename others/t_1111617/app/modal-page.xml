@@ -1,5 +1,17 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="onPageLoaded" xmlns:lv="nativescript-telerik-ui-pro/listview" class="page">
+<Page xmlns:lv="nativescript-telerik-ui-pro/listview" loaded="pageStoriesPagesLoaded" shownModally="pageStoriesPagesShownModally" class="page">
 	<GridLayout rows="3*, *" className="modal-page">
+		<!--
+		<lv:lv:RadListView row="1" id="listView" items="{{ dataItems }}" loaded="onRadListLoaded" itemLoading="onItemLoading" itemTap="selectPage" selectionBehavior="None">
+		<lv:lv:RadListView.listViewLayout>
+		<lv:lv:ListViewLinearLayout scrollDirection="Vertical" />
+		</lv:lv:RadListView.listViewLayout>
+		<lv:lv:RadListView.itemTemplate>
+		<StackLayout>
+		<Label text="{{ 'Seite ' + itemName }}" className="list-item" />
+		</StackLayout>
+		</lv:lv:RadListView.itemTemplate>
+		</lv:lv:RadListView>
+		-->
 		<GridLayout row="0" orientation="vertical" rows="auto, *, auto">
 			<lv:RadListView id="listView" backgroundColor="transparent" items="{{ dataItems }}" row="1" loaded="onRadListLoaded" itemLoading="onItemLoading" selectionBehavior="Press" itemSelected="onItemSelected" itemDeselected="onItemDeselected">
 				<lv:RadListView.listViewLayout>
@@ -15,7 +27,7 @@
 			<Label id="txtSelection" textWrap="true" row="2" />
 		</GridLayout>
 		<AbsoluteLayout row="1" className="fab-center">
-			<Button text="show modal" class="h1" tap="onTap" />
+			<Image src="res://fab_cancel" tap="cancelModalPage" />
 		</AbsoluteLayout>
 	</GridLayout>
 </Page>
