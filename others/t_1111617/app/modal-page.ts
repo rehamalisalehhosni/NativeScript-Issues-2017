@@ -34,10 +34,14 @@ export function onItemLoading(args) {
     }
 };
 
+declare var UIColor: any;
+
 function setIosListItemTransparentBackground(args) {
-    if (isRad) { //RadListView?
-        console.log("isRad RadListView");
-        var iosColor = new Color(20, 255, 0, 0).ios;
-        args.ios.backgroundView.backgroundColor = iosColor;
+    if(args.ios) {
+        if(args.object instanceof ListView) {
+            args.ios.backgroundColor = utilsModule.ios.getter(UIColor, UIColor.clearColor);
+        } else if(args.view.parent instanceof RadListView) {
+            args.ios.backgroundView.backgroundColor = new Color(0,0,0,0).ios;
+        }
     }
 }
