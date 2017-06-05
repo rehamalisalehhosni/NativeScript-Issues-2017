@@ -27,7 +27,7 @@
 			<Label id="txtSelection" textWrap="true" row="2" />
 		</GridLayout>
 		<AbsoluteLayout row="1" className="fab-center">
-			<Image src="res://fab_cancel" tap="cancelModalPage" />
+			<Label text="LiustView in ModalPage" textWrap="true" /> 
 		</AbsoluteLayout>
 	</GridLayout>
 </Page>
