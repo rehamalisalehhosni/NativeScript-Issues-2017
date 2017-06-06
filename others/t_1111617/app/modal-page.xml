@@ -1,8 +1,8 @@
-<Page xmlns:lv="nativescript-telerik-ui-pro/listview" loaded="pageStoriesPagesLoaded" shownModally="pageStoriesPagesShownModally" backgroundColor="transparent" >
+<Page backgroundColor="transparent" xmlns:lv="nativescript-telerik-ui-pro/listview" loaded="pageStoriesPagesLoaded" shownModally="pageStoriesPagesShownModally" >
 	<GridLayout rows="3*, *" >
 
 		<GridLayout row="0" orientation="vertical" rows="auto, *, auto"  >
-			<lv:RadListView id="listView" backgroundColor="transparent" items="{{ dataItems }}" row="1" loaded="onRadListLoaded" itemLoading="onItemLoading" selectionBehavior="Press" itemSelected="onItemSelected" itemDeselected="onItemDeselected">
+			<lv:RadListView backgroundColor="transparent" id="listView" items="{{ dataItems }}" row="1" loaded="onRadListLoaded" itemLoading="onItemLoading" selectionBehavior="Press" itemSelected="onItemSelected" itemDeselected="onItemDeselected">
 				<lv:RadListView.listViewLayout>
 					<lv:ListViewLinearLayout scrollDirection="Vertical" />
 				</lv:RadListView.listViewLayout>
@@ -15,7 +15,7 @@
 			</lv:RadListView>
 			<Label id="txtSelection" textWrap="true" row="2" />
 		</GridLayout>
-		<AbsoluteLayout row="1" backgroundColor="transparent" >
+		<AbsoluteLayout backgroundColor="transparent" row="1" >
 			<Label text="ListView in ModalPage" textWrap="true" /> 
 		</AbsoluteLayout>
 	</GridLayout>
