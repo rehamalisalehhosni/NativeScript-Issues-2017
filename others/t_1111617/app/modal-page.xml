@@ -1,18 +1,7 @@
-<Page xmlns:lv="nativescript-telerik-ui-pro/listview" loaded="pageStoriesPagesLoaded" shownModally="pageStoriesPagesShownModally" class="page">
-	<GridLayout rows="3*, *" className="modal-page">
-		<!--
-		<lv:lv:RadListView row="1" id="listView" items="{{ dataItems }}" loaded="onRadListLoaded" itemLoading="onItemLoading" itemTap="selectPage" selectionBehavior="None">
-		<lv:lv:RadListView.listViewLayout>
-		<lv:lv:ListViewLinearLayout scrollDirection="Vertical" />
-		</lv:lv:RadListView.listViewLayout>
-		<lv:lv:RadListView.itemTemplate>
-		<StackLayout>
-		<Label text="{{ 'Seite ' + itemName }}" className="list-item" />
-		</StackLayout>
-		</lv:lv:RadListView.itemTemplate>
-		</lv:lv:RadListView>
-		-->
-		<GridLayout row="0" orientation="vertical" rows="auto, *, auto">
+<Page xmlns:lv="nativescript-telerik-ui-pro/listview" loaded="pageStoriesPagesLoaded" shownModally="pageStoriesPagesShownModally" backgroundColor="transparent" >
+	<GridLayout rows="3*, *" >
+
+		<GridLayout row="0" orientation="vertical" rows="auto, *, auto"  >
 			<lv:RadListView id="listView" backgroundColor="transparent" items="{{ dataItems }}" row="1" loaded="onRadListLoaded" itemLoading="onItemLoading" selectionBehavior="Press" itemSelected="onItemSelected" itemDeselected="onItemDeselected">
 				<lv:RadListView.listViewLayout>
 					<lv:ListViewLinearLayout scrollDirection="Vertical" />
@@ -26,8 +15,8 @@
 			</lv:RadListView>
 			<Label id="txtSelection" textWrap="true" row="2" />
 		</GridLayout>
-		<AbsoluteLayout row="1" className="fab-center">
-			<Label text="LiustView in ModalPage" textWrap="true" /> 
+		<AbsoluteLayout row="1" backgroundColor="transparent" >
+			<Label text="ListView in ModalPage" textWrap="true" /> 
 		</AbsoluteLayout>
 	</GridLayout>
 </Page>
