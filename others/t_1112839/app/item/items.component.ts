@@ -16,4 +16,8 @@ export class ItemsComponent implements OnInit {
     ngOnInit(): void {
         this.items = this.itemService.getItems();
     }
+
+    public changeItToString(index: number) { 
+        return (index + 1); 
+    }
 }
