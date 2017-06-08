@@ -14,6 +14,5 @@ export function navWithClearHistory() {
         clearHistory: true //if set false，the problem is solved，but we need set true
     };
 
-
     topmost().navigate(navigationEntry);
 }
