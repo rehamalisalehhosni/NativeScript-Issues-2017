@@ -8,7 +8,8 @@ import { EventData } from 'data/observable';
 import { Image } from 'ui/image';
 import { Page } from 'ui/page';
 import { HelloWorldModel } from './main-view-model';
-
+import { AnimationCurve } from "ui/enums";
+let img: Image;
 
 // Event handler for Page "navigatingTo" event attached in main-page.xml
 export function navigatingTo(args: EventData) {
@@ -18,7 +19,7 @@ export function navigatingTo(args: EventData) {
     https://docs.nativescript.org/api-reference/classes/_ui_page_.page.html
     */
     let page = <Page>args.object;
-    
+
     /*
     A page’s bindingContext is an object that should be used to perform
     data binding between XML markup and TypeScript code. Properties
@@ -33,7 +34,15 @@ export function navigatingTo(args: EventData) {
 }
 
 export function onImageLoaded(args) {
-    let image = <Image>args.object;
-    image.scaleX = 10;
-    image.scaleY = 10;
+    img = <Image>args.object;
+    img.scaleX = 0.2;
+    img.scaleY = 0.2;
+}
+
+export function animateImage() {
+    img.animate({
+        translate: { x: 0, y: 100 },
+        duration: 1000,
+        curve: AnimationCurve.easeIn
+    });
 }
