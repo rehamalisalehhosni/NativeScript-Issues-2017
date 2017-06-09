@@ -19,7 +19,7 @@ export function navigatingTo(args: EventData) {
     https://docs.nativescript.org/api-reference/classes/_ui_page_.page.html
     */
     let page = <Page>args.object;
-    
+
     /*
     A page’s bindingContext is an object that should be used to perform
     data binding between XML markup and TypeScript code. Properties
@@ -41,7 +41,8 @@ export function onImageLoaded(args) {
 
 export function animateImage() {
     img.animate({
-        scale: { x: 2, y: 2},    
-        duration: 1000
+        translate: { x: 0, y: 100 },
+        duration: 1000,
+        curve: AnimationCurve.easeIn
     });
 }
