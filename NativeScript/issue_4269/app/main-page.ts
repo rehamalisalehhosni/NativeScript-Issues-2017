@@ -7,27 +7,12 @@ export function navigatingTo(args: EventData) {
 }
 
 export function navWithClearHistory() {
-    topmost().navigate({
+    var navigationEntry = {
         moduleName: "sub-page",
-        clearHistory: true
-    })
-}
+        context: {"taskType": "type", "taskId": "taskId", "curPage": "curPage"},
+        animated: false,
+        clearHistory: true //if set false，the problem is solved，but we need set true
+    };
 
-export function navWithClearHistoryAndTransition() {
-    topmost().navigate({
-        moduleName: "sub-page",
-        clearHistory: true,
-        animated: true,
-        transition: {
-            name: "slide",
-            duration: 3000
-        }
-    })
-}
-
-export function navWithoutClearHistory() {
-    topmost().navigate({
-        moduleName: "sub-page",
-        clearHistory: false
-    })
+    topmost().navigate(navigationEntry);
 }
