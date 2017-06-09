@@ -10,6 +10,8 @@ import { HelloWorldModel } from './main-view-model';
 import { android as androidApp } from "application";
 declare var android: any;
 
+import * as permissions from "nativescript-permissions";
+
 // Event handler for Page "navigatingTo" event attached in main-page.xml
 export function navigatingTo(args: EventData) {
     /*
@@ -19,17 +21,23 @@ export function navigatingTo(args: EventData) {
     */
     let page = <Page>args.object;
 
-    /*
-    A page’s bindingContext is an object that should be used to perform
-    data binding between XML markup and TypeScript code. Properties
-    on the bindingContext can be accessed using the {{ }} syntax in XML.
-    In this example, the {{ message }} and {{ onTap }} bindings are resolved
-    against the object returned by createViewModel().
 
-    You can learn more about data binding in NativeScript at
-    https://docs.nativescript.org/core-concepts/data-binding.
-    */
     page.bindingContext = new HelloWorldModel();
+}
+
+export function takePermissions() {
+    permissions.requestPermission([
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.INTERNET",
+        "android.permission.WRITE_SETTINGS"
+    ], "I need these permissions")
+        .then(function (res) {
+            console.log("Permissions granted!");
+        })
+        .catch(function () {
+            console.log("No permissions - plan B time!");
+        });
 }
 
 export function changeBrightness() {
