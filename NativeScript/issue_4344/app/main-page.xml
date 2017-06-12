@@ -4,6 +4,5 @@
         <Label text="issue 4344" class="h1 text-center"/>
         <Image  src="res://icon" loaded="onImageLoaded" />
         <Button text="Animate Image" tap="animateImage" />
-        
     </StackLayout>
 </Page>
