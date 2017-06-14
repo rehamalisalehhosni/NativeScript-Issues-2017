@@ -12,14 +12,14 @@
             <StackLayout>
 
                 <!-- The short syntax is not working in NativeScript 3.x.x-->
-                <!--<Label backgroundColor="lightblue">
+                <Label backgroundColor="lightblue">
                     <FormattedString>
                         <Span text="&#xf0d7; " fontFamily="FontAwesome" />
                         <Span text="Test 1234" fontStyle="italic"  />
                         <Span text="Test 5678" />
                     </FormattedString>
-                </Label>-->
-                <Label>
+                </Label>
+                <!--<Label>
                     <Label.formattedText>
                         <FormattedString>
                             <FormattedString.spans>
@@ -29,7 +29,7 @@
                             </FormattedString.spans>
                         </FormattedString>
                     </Label.formattedText>
-                </Label>
+                </Label>-->
             </StackLayout>
         </drawer:RadSideDrawer.mainContent>
     </drawer:RadSideDrawer>
