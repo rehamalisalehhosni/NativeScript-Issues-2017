@@ -43,6 +43,9 @@ export class CustomAppDelegate extends UIResponder implements UIApplicationDeleg
     public runOnBackground(): void {
         if (this.timerCounter <= 0) {
             console.log("FIVE MINUTES PASSED - Execute the code here!");
+            // Apple is not allowing any applicaiton to be bringed back to foreground without user interaction.
+            // The code taht can be executed here is described by APple guidelines
+            // You can also send notification from which the user can tap and bring the app to foreground manually.
 
             this.endBackgroundTask(); // in this case the background task will be stopped and the timer will be reset via our timerCounter variable
             return;
