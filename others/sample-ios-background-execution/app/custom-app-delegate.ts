@@ -18,7 +18,7 @@ export class CustomAppDelegate extends UIResponder implements UIApplicationDeleg
             this.endBackgroundTask();
         });
 
-        this.timerCounter = 3 * 60; // use this counter for 5 minutes X 60 seconds each
+        this.timerCounter = 3 * 60; // use this counter for 3 minutes X 60 seconds each (no task canb e lnger than 3 minuteis in the lastest iOS versions - see the comments below for details)
         console.log("Start logging numbers on background.");
         this.timer = NSTimer.scheduledTimerWithTimeIntervalTargetSelectorUserInfoRepeats(1.00, this, "runOnBackground", null, true); // NSTimer interval of 1 second
     }
