@@ -18,7 +18,7 @@ export class CustomAppDelegate extends UIResponder implements UIApplicationDeleg
             this.endBackgroundTask();
         });
 
-        this.timerCounter = 5 * 60; // use this counter for 5 minutes X 60 seconds each
+        this.timerCounter = 3 * 60; // use this counter for 5 minutes X 60 seconds each
         console.log("Start logging numbers on background.");
         this.timer = NSTimer.scheduledTimerWithTimeIntervalTargetSelectorUserInfoRepeats(1.00, this, "runOnBackground", null, true); // NSTimer interval of 1 second
     }
@@ -32,7 +32,7 @@ export class CustomAppDelegate extends UIResponder implements UIApplicationDeleg
             this.timer.invalidate();
             this.timer = null;
         }
-        this.timerCounter = 5 * 60; // reset the counter
+        this.timerCounter = 3 * 60; // reset the counter
 
         var app = ios.getter(UIApplication, UIApplication.sharedApplication);
         app.endBackgroundTask(this.bgTask);
@@ -43,8 +43,8 @@ export class CustomAppDelegate extends UIResponder implements UIApplicationDeleg
 
     public runOnBackground(): void {
         
-        if (this.timerCounter <= 0) {
-            console.log("FIVE MINUTES PASSED - Execute the code here!");
+        if (this.timerCounter <= 10) {
+            console.log("THREE MINUTES PASSED - Execute the code here!");
             // Apple is not allowing any applicaiton to be bringed back to foreground without user interaction.
             // The code taht can be executed here is described by APple guidelines
             // You can also send notification from which the user can tap and bring the app to foreground manually.
@@ -58,4 +58,10 @@ export class CustomAppDelegate extends UIResponder implements UIApplicationDeleg
         console.log(`${this.timerCounter} (the app is on background)`);
         this.timerCounter--;
     }
-}
+}. ...   §
+
+
+
+
+
+
