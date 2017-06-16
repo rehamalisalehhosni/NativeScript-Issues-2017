@@ -1,6 +1,6 @@
-import {AfterViewInit, Component} from "@angular/core";
-import {Page} from "tns-core-modules/ui/page";
-import {Label} from "tns-core-modules/ui/label";
+import { AfterViewInit, Component } from "@angular/core";
+import { Page } from "tns-core-modules/ui/page";
+import { Label } from "tns-core-modules/ui/label";
 
 @Component({
     selector: "lifecycle",
@@ -20,8 +20,12 @@ export class ItemsComponent implements AfterViewInit {
     }
 
     public ngAfterViewInit(): void {
-        let label: Label = this._page.getViewById<Label>("label1");
-        // label.android will be undefined on android
-        console.log("ngAfterViewInit: " + label.android + label.ios);
+        
+        setTimeout(() => {
+            let label: Label = this._page.getViewById<Label>("label1");
+            // label.android will be undefined on android
+            console.log("ngAfterViewInit Android: " + label.android + " iOS: " + label.ios);
+        }, 1);
+
     }
 }
