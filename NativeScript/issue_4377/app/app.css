@@ -6,6 +6,6 @@
 
 .borders {
     border-color: red;
-    border-width: 0 2 2 0;
+    border-width: 2 2 2 0;
     border-radius: 40;
 }
