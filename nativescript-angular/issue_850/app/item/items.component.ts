@@ -3,6 +3,9 @@ import { Component, OnInit } from "@angular/core";
 import { Item } from "./item";
 import { ItemService } from "./item.service";
 
+import { Label } from "ui/label";
+import { TabView, TabViewItem } from "ui/tab-view";
+
 @Component({
     selector: "ns-items",
     moduleId: module.id,
@@ -16,5 +19,22 @@ export class ItemsComponent implements OnInit {
 
     ngOnInit(): void {
         this.items = this.itemService.getItems();
+    }
+
+    onChange() {
+        this.isLoggedIn = !this.isLoggedIn;
+    }
+
+    onTabLoaded(args) {
+        let tabView = <TabView>args.object;
+        console.log("onTabLoaded " + tabView);
+
+        var tabViewItem = new TabViewItem();
+        tabViewItem.title = "some";
+        var lbl = new Label();
+        lbl.text = "test";
+        tabViewItem.view = lbl;
+
+        tabView.items.push(tabViewItem);
     }
 }
