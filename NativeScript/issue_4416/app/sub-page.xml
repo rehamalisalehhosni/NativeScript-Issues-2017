@@ -1,6 +1,6 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
     <Page.actionBar>
-        <ActionBar title="Sub Page" icon="" class="action-bar">
+        <ActionBar title="Sub Page" >
         </ActionBar>
     </Page.actionBar>
     <StackLayout class="p-20">

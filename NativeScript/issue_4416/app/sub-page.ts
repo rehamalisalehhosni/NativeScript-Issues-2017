@@ -7,7 +7,8 @@ export function onTap(args) {
     topmost().navigate({
         moduleName: "main-page",
         transition: {
-            name: "fade"
+            duration: 1500,
+            name: "slide"
         }
     })
 }
