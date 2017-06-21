@@ -6,7 +6,7 @@
         </ActionBar>
     </Page.actionBar>
 
-    <GridLayout rows="*, 100" columns="*">
+    <GridLayout rows="*, 100, 100" columns="*">
         <lv:RadListView id="lv" row="0" items="{{ dataItems }}" >
 
             <lv:RadListView.listViewLayout>
@@ -20,7 +20,7 @@
                 </StackLayout>
             </lv:RadListView.itemTemplate>
         </lv:RadListView>
-        <Button row="1" text="tap" tap="onTap" />
-        
+        <Button row="1" text="scrollToIndex" tap="scrollToIndex" />
+        <Button row="2" text="scrollToIndex" tap="smoothScroll" />
     </GridLayout>
 </Page>
