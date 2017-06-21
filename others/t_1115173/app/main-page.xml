@@ -11,3 +11,4 @@
         <Slider class="slider" loaded="onSliderLoaded"  /> <!-- working -->
     </StackLayout>
 </Page>
+
