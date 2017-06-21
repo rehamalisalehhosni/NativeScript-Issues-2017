@@ -21,6 +21,6 @@
             </lv:RadListView.itemTemplate>
         </lv:RadListView>
         <Button row="1" text="scrollToIndex" tap="scrollToIndex" />
-        <Button row="2" text="scrollToIndex" tap="smoothScroll" />
+        <Button row="2" text="smoothScroll" tap="smoothScroll" />
     </GridLayout>
 </Page>
