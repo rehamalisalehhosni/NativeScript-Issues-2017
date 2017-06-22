@@ -24,6 +24,6 @@ https://docs.nativescript.org/ui/components.
     core theme, such as p-20, btn, h2, and text-center. You can view a full list of the
     class names available for styling your app at https://docs.nativescript.org/ui/theme.
     -->
-    <WebView src="https://docs.nativescript.org" loaded="onWebViewLoaded" />
+    <WebView id="wv" src="https://docs.nativescript.org" loaded="onWebViewLoaded" />
     
 </Page>
