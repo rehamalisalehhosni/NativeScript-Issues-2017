@@ -4,7 +4,7 @@ of which NativeScript renders with a platform-specific iOS or Android native con
 You can find a full list of user interface components you can use in your app at
 https://docs.nativescript.org/ui/components.
 -->
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:lv="nativescript-telerik-ui-pro/listview"  navigatingTo="navigatingTo" class="page">
     <!--
     The ActionBar is the NativeScript common abstraction over the Android ActionBar and iOS NavigationBar.
     http://docs.nativescript.org/ui/action-bar
@@ -26,7 +26,18 @@ https://docs.nativescript.org/ui/components.
     -->
     <StackLayout class="p-20" id="container">
         <Label text="Tap the button" class="h1 text-center"/>
-        <Button text="TAP" tap="{{ onTap }}" class="btn btn-primary btn-active"/>
-        <Label text="{{ message }}" class="h2 text-center" textWrap="true"/>
+
+        <lv:RadListView id="lv" items="{{ items }}">
+
+            <lv:RadListView.listViewLayout>
+                <lv:ListViewLinearLayout scrollDirection="Vertical"/>
+            </lv:RadListView.listViewLayout>
+            <lv:RadListView.itemTemplate>
+                <StackLayout orientation="vertical">
+                    <Label fontSize="20" text="{{ $value }}"/>
+                </StackLayout>
+            </lv:RadListView.itemTemplate>
+
+        </lv:RadListView>
     </StackLayout>
 </Page>

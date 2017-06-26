@@ -1,9 +1,11 @@
-import {Observable} from 'data/observable';
+import { Observable } from 'data/observable';
 
 export class HelloWorldModel extends Observable {
 
     private _counter: number;
     private _message: string;
+
+    public items: Array<any>;
 
     constructor() {
         super();
@@ -11,12 +13,13 @@ export class HelloWorldModel extends Observable {
         // Initialize default values.
         this._counter = 42;
         this.updateMessage();
+        this.items = [1, 2, 3, 4, 5];
     }
 
     get message(): string {
         return this._message;
     }
-    
+
     set message(value: string) {
         if (this._message !== value) {
             this._message = value;
