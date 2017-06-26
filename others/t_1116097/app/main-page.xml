@@ -26,18 +26,5 @@ https://docs.nativescript.org/ui/components.
     -->
     <StackLayout class="p-20" id="container">
         <Label text="Tap the button" class="h1 text-center"/>
-
-        <lv:RadListView id="lv" items="{{ items }}">
-
-            <lv:RadListView.listViewLayout>
-                <lv:ListViewLinearLayout scrollDirection="Vertical"/>
-            </lv:RadListView.listViewLayout>
-            <lv:RadListView.itemTemplate>
-                <StackLayout orientation="vertical">
-                    <Label fontSize="20" text="{{ $value }}"/>
-                </StackLayout>
-            </lv:RadListView.itemTemplate>
-
-        </lv:RadListView>
     </StackLayout>
 </Page>
