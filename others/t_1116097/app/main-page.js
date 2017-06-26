@@ -1,0 +1,23 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var label_1 = require("ui/label");
+var main_view_model_1 = require("./main-view-model");
+var listview_1 = require("nativescript-telerik-ui-pro/listview");
+function navigatingTo(args) {
+    /*
+    This gets a reference this page’s <Page> UI component. You can
+    view the API reference of the Page to see what’s available at
+    https://docs.nativescript.org/api-reference/classes/_ui_page_.page.html
+    */
+    var page = args.object;
+    var container = page.getViewById("container");
+    var radList = new listview_1.RadListView();
+    radList.items = [1, 2, 3, 4, 5];
+    var templateLabel = new label_1.Label();
+    templateLabel.text = "some value";
+    radList.itemTemplate = "<label text='{{ $value }}' />";
+    container.addChild(radList);
+    page.bindingContext = new main_view_model_1.HelloWorldModel();
+}
+exports.navigatingTo = navigatingTo;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi1wYWdlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsibWFpbi1wYWdlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBSUEsa0NBQWlDO0FBQ2pDLHFEQUFvRDtBQUVwRCxpRUFBa0U7QUFFbEUsc0JBQTZCLElBQWU7SUFDeEM7Ozs7TUFJRTtJQUNGLElBQUksSUFBSSxHQUFTLElBQUksQ0FBQyxNQUFNLENBQUM7SUFFN0IsSUFBSSxTQUFTLEdBQWdCLElBQUksQ0FBQyxXQUFXLENBQUMsV0FBVyxDQUFDLENBQUM7SUFFM0QsSUFBSSxPQUFPLEdBQUcsSUFBSSxzQkFBVyxFQUFFLENBQUM7SUFDaEMsT0FBTyxDQUFDLEtBQUssR0FBRyxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQztJQUVoQyxJQUFJLGFBQWEsR0FBRyxJQUFJLGFBQUssRUFBRSxDQUFDO0lBQ2hDLGFBQWEsQ0FBQyxJQUFJLEdBQUcsWUFBWSxDQUFDO0lBQ2xDLE9BQU8sQ0FBQyxZQUFZLEdBQUcsK0JBQStCLENBQUM7SUFFdkQsU0FBUyxDQUFDLFFBQVEsQ0FBQyxPQUFPLENBQUMsQ0FBQztJQUU1QixJQUFJLENBQUMsY0FBYyxHQUFHLElBQUksaUNBQWUsRUFBRSxDQUFDO0FBQ2hELENBQUM7QUFwQkQsb0NBb0JDIiwic291cmNlc0NvbnRlbnQiOlsiXG5pbXBvcnQgeyBFdmVudERhdGEgfSBmcm9tICdkYXRhL29ic2VydmFibGUnO1xuaW1wb3J0IHsgUGFnZSB9IGZyb20gJ3VpL3BhZ2UnO1xuaW1wb3J0IHsgU3RhY2tMYXlvdXQgfSBmcm9tICd1aS9sYXlvdXRzL3N0YWNrLWxheW91dCc7XG5pbXBvcnQgeyBMYWJlbCB9IGZyb20gJ3VpL2xhYmVsJztcbmltcG9ydCB7IEhlbGxvV29ybGRNb2RlbCB9IGZyb20gJy4vbWFpbi12aWV3LW1vZGVsJztcblxuaW1wb3J0IHsgUmFkTGlzdFZpZXcgfSBmcm9tIFwibmF0aXZlc2NyaXB0LXRlbGVyaWstdWktcHJvL2xpc3R2aWV3XCJcblxuZXhwb3J0IGZ1bmN0aW9uIG5hdmlnYXRpbmdUbyhhcmdzOiBFdmVudERhdGEpIHtcbiAgICAvKlxuICAgIFRoaXMgZ2V0cyBhIHJlZmVyZW5jZSB0aGlzIHBhZ2XigJlzIDxQYWdlPiBVSSBjb21wb25lbnQuIFlvdSBjYW5cbiAgICB2aWV3IHRoZSBBUEkgcmVmZXJlbmNlIG9mIHRoZSBQYWdlIHRvIHNlZSB3aGF04oCZcyBhdmFpbGFibGUgYXRcbiAgICBodHRwczovL2RvY3MubmF0aXZlc2NyaXB0Lm9yZy9hcGktcmVmZXJlbmNlL2NsYXNzZXMvX3VpX3BhZ2VfLnBhZ2UuaHRtbFxuICAgICovXG4gICAgbGV0IHBhZ2UgPSA8UGFnZT5hcmdzLm9iamVjdDtcblxuICAgIGxldCBjb250YWluZXIgPSA8U3RhY2tMYXlvdXQ+cGFnZS5nZXRWaWV3QnlJZChcImNvbnRhaW5lclwiKTtcblxuICAgIGxldCByYWRMaXN0ID0gbmV3IFJhZExpc3RWaWV3KCk7XG4gICAgcmFkTGlzdC5pdGVtcyA9IFsxLCAyLCAzLCA0LCA1XTtcblxuICAgIHZhciB0ZW1wbGF0ZUxhYmVsID0gbmV3IExhYmVsKCk7XG4gICAgdGVtcGxhdGVMYWJlbC50ZXh0ID0gXCJzb21lIHZhbHVlXCI7XG4gICAgcmFkTGlzdC5pdGVtVGVtcGxhdGUgPSBcIjxsYWJlbCB0ZXh0PSd7eyAkdmFsdWUgfX0nIC8+XCI7XG5cbiAgICBjb250YWluZXIuYWRkQ2hpbGQocmFkTGlzdCk7XG5cbiAgICBwYWdlLmJpbmRpbmdDb250ZXh0ID0gbmV3IEhlbGxvV29ybGRNb2RlbCgpO1xufSJdfQ==
