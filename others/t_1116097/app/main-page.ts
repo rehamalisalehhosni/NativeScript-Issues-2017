@@ -21,9 +21,6 @@ export function navigatingTo(args: EventData) {
     let radList = new RadListView();
     radList.items = [1, 2, 3, 4, 5, 6.6];
     radList.selectionBehavior = "Press";
-
-    var templateLabel = new Label();
-    templateLabel.text = "some value";
     radList.itemTemplate = "<label text='{{ $value }}' />";
 
     container.addChild(radList);
