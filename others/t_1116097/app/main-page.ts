@@ -5,7 +5,7 @@ import { StackLayout } from 'ui/layouts/stack-layout';
 import { Label } from 'ui/label';
 import { HelloWorldModel } from './main-view-model';
 
-import { RadListView } from "nativescript-telerik-ui-pro/listview"
+import { RadListView, ListViewLinearLayout, ListViewScrollDirection } from "nativescript-telerik-ui-pro/listview"
 
 export function navigatingTo(args: EventData) {
     /*
@@ -22,6 +22,10 @@ export function navigatingTo(args: EventData) {
     radList.items = [1, 2, 3, 4, 5, 6.6];
     radList.selectionBehavior = "Press";
     radList.itemTemplate = "<label text='{{ $value }}' />";
+
+    let linearLayout = new ListViewLinearLayout();
+    linearLayout.scrollDirection = "Horizontal";
+    radList.listViewLayout = linearLayout;
 
     container.addChild(radList);
 
