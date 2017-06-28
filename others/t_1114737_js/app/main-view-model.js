@@ -25,6 +25,26 @@ function createViewModel() {
     viewModel.items.push({ "id": 3, "name": "Mery" });
     viewModel.items.push({ "id": 4, "name": "Chris" });
     viewModel.items.push({ "id": 5, "name": "Anna" });
+        viewModel.items.push({ "id": 1, "name": "John"});
+    viewModel.items.push({ "id": 2, "name": "Daniel" });
+    viewModel.items.push({ "id": 3, "name": "Mery" });
+    viewModel.items.push({ "id": 4, "name": "Chris" });
+    viewModel.items.push({ "id": 5, "name": "Anna" });
+        viewModel.items.push({ "id": 1, "name": "John"});
+    viewModel.items.push({ "id": 2, "name": "Daniel" });
+    viewModel.items.push({ "id": 3, "name": "Mery" });
+    viewModel.items.push({ "id": 4, "name": "Chris" });
+    viewModel.items.push({ "id": 5, "name": "Anna" });
+        viewModel.items.push({ "id": 1, "name": "John"});
+    viewModel.items.push({ "id": 2, "name": "Daniel" });
+    viewModel.items.push({ "id": 3, "name": "Mery" });
+    viewModel.items.push({ "id": 4, "name": "Chris" });
+    viewModel.items.push({ "id": 5, "name": "Anna" });
+        viewModel.items.push({ "id": 1, "name": "John"});
+    viewModel.items.push({ "id": 2, "name": "Daniel" });
+    viewModel.items.push({ "id": 3, "name": "Mery" });
+    viewModel.items.push({ "id": 4, "name": "Chris" });
+    viewModel.items.push({ "id": 5, "name": "Anna" });
 
     return viewModel;
 }
