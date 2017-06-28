@@ -1,17 +1,18 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:lv="nativescript-telerik-ui/listview" navigatingTo="onNavigatingTo" class="page">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:lv="nativescript-telerik-ui/listview" loaded="onPageLoaded" class="page">
 
     <Page.actionBar>
         <ActionBar title="My App" icon="" class="action-bar">
         </ActionBar>
     </Page.actionBar>
 
-    <GridLayout class="p-20">
-        <lv:RadListView items="{{ items }}"     
+    <GridLayout rows="100, 500" class="p-20">
+
+        <lv:RadListView row="1" id="list" items="{{ items }}"     
                         selectionBehavior="None" 
                         itemSwipeProgressEnded="onSwipeCellFinished"
-                        itemSwipeProgressStarted="onSwipeCellStarted" 
+                        itemSwipeProgressStarted="onSwipeStarted" 
                         itemSwipeProgressChanged="onCellSwiping" 
-                        swipeActions="true">
+                        swipeActions="true" visibility="{{ isInitialized ? 'visible' : 'collapse' }}">
 
             <lv:RadListView.listViewLayout>
                 <lv:ListViewLinearLayout scrollDirection="Vertical" itemDeleteAnimation="Slide" itemAddAnimation="Slide" />
@@ -19,12 +20,19 @@
 
             <lv:RadListView.itemTemplate>
                 <GridLayout rows="auto, auto" class="list-item ece">
-                    <StackLayout orientation="vertical">
+                    <StackLayout height="80" class="m-10 p-10" backgroundColor="gray" orientation="vertical">
                         <Label fontSize="20" text="{{ id }}"/>
-                        <Label fontSize="20" text="{{ name }}"/>
+                        <Label fontSize="20" text="{{ name }}" visibility="{{ status+id ? 'visible' : 'collapsed' }}" />
                     </StackLayout>
                 </GridLayout>
             </lv:RadListView.itemTemplate>
+
+            <lv:RadListView.itemSwipeTemplate>
+                <GridLayout columns="*, 50" rows="*" class="bg-accent swipe-template">
+                    <Label col="0" text="" textWrap="false" class="swipeText" />
+                    <Label col="1" text="&#xf00c;" class="fa swipeIcon bg-accent" />
+                </GridLayout>
+            </lv:RadListView.itemSwipeTemplate>
 
         </lv:RadListView>
     </GridLayout>

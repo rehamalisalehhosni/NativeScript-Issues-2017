@@ -12,34 +12,19 @@ function getMessage(counter) {
 function createViewModel() {
     var viewModel = new Observable();
 
-    viewModel.isInitialized = true;
-
     viewModel.items = new ObservableArray();
+
+    viewModel.status1 = false;
+    viewModel.status2 = false;
+    viewModel.status3 = false;
+    viewModel.status4 = false;
+    viewModel.status5 = false;
 
     viewModel.items.push({ "id": 1, "name": "John"});
     viewModel.items.push({ "id": 2, "name": "Daniel" });
     viewModel.items.push({ "id": 3, "name": "Mery" });
     viewModel.items.push({ "id": 4, "name": "Chris" });
     viewModel.items.push({ "id": 5, "name": "Anna" });
-
-    viewModel.items.push({ "id": 11, "name": "John" });
-    viewModel.items.push({ "id": 12, "name": "Daniel" });
-    viewModel.items.push({ "id": 13, "name": "Mery" });
-    viewModel.items.push({ "id": 14, "name": "Chris" });
-    viewModel.items.push({ "id": 15, "name": "Anna" });
-
-    viewModel.items.push({ "id": 21, "name": "John" });
-    viewModel.items.push({ "id": 22, "name": "Daniel" });
-    viewModel.items.push({ "id": 23, "name": "Mery" });
-    viewModel.items.push({ "id": 24, "name": "Chris" });
-    viewModel.items.push({ "id": 25, "name": "Anna" });
-
-    viewModel.items.push({ "id": 31, "name": "John" });
-    viewModel.items.push({ "id": 32, "name": "Daniel" });
-    viewModel.items.push({ "id": 33, "name": "Mery" });
-    viewModel.items.push({ "id": 34, "name": "Chris" });
-    viewModel.items.push({ "id": 35, "name": "Anna" });
-
 
     return viewModel;
 }
