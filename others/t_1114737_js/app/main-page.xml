@@ -21,8 +21,8 @@
             <lv:RadListView.itemTemplate>
                 <GridLayout rows="auto, auto" class="list-item ece">
                     <StackLayout height="80" class="m-10 p-10" backgroundColor="gray" orientation="vertical">
-                        <Label fontSize="20" text="{{ id }}"/>
-                        <Label fontSize="20" text="{{ name }}" visibility="{{ status+id ? 'visible' : 'collapsed' }}" />
+                        <Label fontSize="20" text="{{ id + ' swipe to change the visibility'}} " backgroundColor="white"/>
+                        <Label fontSize="20" text="{{ name }}" visibility="{{ status+id, status+id ? 'visible' : 'collapse' }}" backgroundColor="blue"//>
                     </StackLayout>
                 </GridLayout>
             </lv:RadListView.itemTemplate>
