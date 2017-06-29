@@ -1,0 +1,15 @@
+﻿
+@import 'nativescript-theme-core/css/core.light.css';
+
+.btn {
+    font-size: 18;
+}
+
+.changed-styles {
+    padding: 10;
+    font-size: 35;
+    text-decoration: line-through;
+    background-color: blue;
+    color: green;
+    text-align: right;
+}
