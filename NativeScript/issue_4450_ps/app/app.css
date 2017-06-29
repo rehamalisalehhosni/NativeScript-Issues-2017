@@ -5,6 +5,18 @@
     font-size: 18;
 }
 
+.default {
+    padding: 15;
+    background-color: red;
+    color: yellow;
+    font-size: 25;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    text-decoration: underline;
+    margin: 20;
+}
+
 .changed-styles {
     padding: 10;
     font-size: 35;
