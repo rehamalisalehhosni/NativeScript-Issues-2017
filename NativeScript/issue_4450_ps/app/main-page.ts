@@ -14,7 +14,7 @@ let viewModel = new HelloWorldModel();
 viewModel.set("cssClass", "default");
 
 // Event handler for Page "navigatingTo" event attached in main-page.xml
-export function navigatingTo(args: EventData) {
+export function onLoaded(args: EventData) {
     const page = <Page>args.object;
     const items = new ValueList<string>();
     
