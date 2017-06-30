@@ -3,113 +3,120 @@ import { Component, OnInit } from "@angular/core";
 import { Item } from "./item";
 import { ItemService } from "./item.service";
 
+import { isAndroid, isIOS } from "platform";
+
 @Component({
-    selector: "ns-items",
-    moduleId: module.id,
-    templateUrl: "./items.component.html",
+	selector: "ns-items",
+	moduleId: module.id,
+	templateUrl: "./items.component.html",
 })
 export class ItemsComponent implements OnInit {
-    items: Item[];
+	items: Item[];
 
-    constructor(private itemService: ItemService) { }
+	constructor(private itemService: ItemService) { }
 
-    ngOnInit(): void {
-        this.items = this.itemService.getItems();
-    }
-    onTap(){
-        let config = NSURLSessionConfiguration.backgroundSessionConfigurationWithIdentifier("org.nativescript.sample");
-        var delegate = BackgroundUploadDelegate.alloc().init();
-        let session = NSURLSession.sessionWithConfigurationDelegateDelegateQueue(config,delegate, null);
-        console.log(session);
-        let url= NSURL.URLWithString("https://httpbin.org/image");
-        let task = session.downloadTaskWithURL(url);
-        task.resume();
-    }
-}
-
-
-class BackgroundUploadDelegate extends NSObject implements NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, NSURLSessionDownloadDelegate {
-
-	static ObjCProtocols = [NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, NSURLSessionDownloadDelegate];
-
-	// NSURLSessionDelegate
-	URLSessionDidBecomeInvalidWithError(session, error) {
-		console.log("URLSessionDidBecomeInvalidWithError:");
-		//console.log(" - session: " + session);
-		//console.log(" - error:   " + error);
+	ngOnInit(): void {
+		this.items = this.itemService.getItems();
 	}
 
-	URLSessionDidReceiveChallengeCompletionHandler(session, challenge, comlpetionHandler) {
-		//console.log("URLSessionDidFinishEventsForBackgroundURLSession: " + session + " " + challenge);
-		var disposition = null;
-		var credential = null;
-		comlpetionHandler(disposition, credential);
-	}
+	onTap() {
+		if(isIOS) {
 
-	URLSessionDidFinishEventsForBackgroundURLSession(session) {
-		console.log("URLSessionDidFinishEventsForBackgroundURLSession: " + session);
-	}
+			class BackgroundUploadDelegate extends NSObject implements NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, NSURLSessionDownloadDelegate {
 
-	// NSURLSessionTaskDelegate
-	URLSessionTaskDidCompleteWithError(session, nsTask, error) {
-		console.log("URLSessionTaskDidCompleteWithError");
-        console.log(error);
-	}
+				static ObjCProtocols = [NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, NSURLSessionDownloadDelegate];
 
-	URLSessionTaskDidReceiveChallengeCompletionHandler(session, task, challenge, completionHandler) {
-		console.log("URLSessionTaskDidReceiveChallengeCompletionHandler: " + session + " " + task + " " + challenge);
-		var disposition = null;
-		var credential = null;
-		completionHandler(disposition, credential);
-	}
+				// NSURLSessionDelegate
+				URLSessionDidBecomeInvalidWithError(session, error) {
+					console.log("URLSessionDidBecomeInvalidWithError:");
+					//console.log(" - session: " + session);
+					//console.log(" - error:   " + error);
+				}
 
-	URLSessionTaskDidSendBodyDataTotalBytesSentTotalBytesExpectedToSend(nsSession: NSURLSession, nsTask: NSURLSessionTask, data, sent: number, expectedTotal: number) {
-        console.log("URLSessionTaskDidSendBodyDataTotalBytesSentTotalBytesExpectedToSend")
-	}
+				URLSessionDidReceiveChallengeCompletionHandler(session, challenge, comlpetionHandler) {
+					//console.log("URLSessionDidFinishEventsForBackgroundURLSession: " + session + " " + challenge);
+					var disposition = null;
+					var credential = null;
+					comlpetionHandler(disposition, credential);
+				}
 
-	URLSessionTaskNeedNewBodyStream(session, task, need) {
-		console.log("URLSessionTaskNeedNewBodyStream");
-	}
+				URLSessionDidFinishEventsForBackgroundURLSession(session) {
+					console.log("URLSessionDidFinishEventsForBackgroundURLSession: " + session);
+				}
 
-	URLSessionTaskWillPerformHTTPRedirectionNewRequestCompletionHandler(session, task, redirect, request, completionHandler) {
-		console.log("URLSessionTaskWillPerformHTTPRedirectionNewRequestCompletionHandler");
-		completionHandler(request);
-	}
+				// NSURLSessionTaskDelegate
+				URLSessionTaskDidCompleteWithError(session, nsTask, error) {
+					console.log("URLSessionTaskDidCompleteWithError");
+					console.log(error);
+				}
 
-	// NSURLSessionDataDelegate
-	URLSessionDataTaskDidReceiveResponseCompletionHandler(session, dataTask, response, completionHandler) {
-		console.log("URLSessionDataTaskDidReceiveResponseCompletionHandler");
-		var disposition = null;
-		completionHandler(disposition);
-	}
+				URLSessionTaskDidReceiveChallengeCompletionHandler(session, task, challenge, completionHandler) {
+					console.log("URLSessionTaskDidReceiveChallengeCompletionHandler: " + session + " " + task + " " + challenge);
+					var disposition = null;
+					var credential = null;
+					completionHandler(disposition, credential);
+				}
 
-	URLSessionDataTaskDidBecomeDownloadTask(session, dataTask, downloadTask) {
-		console.log("URLSessionDataTaskDidBecomeDownloadTask");
-	}
+				URLSessionTaskDidSendBodyDataTotalBytesSentTotalBytesExpectedToSend(nsSession: NSURLSession, nsTask: NSURLSessionTask, data, sent: number, expectedTotal: number) {
+					console.log("URLSessionTaskDidSendBodyDataTotalBytesSentTotalBytesExpectedToSend")
+				}
 
-	URLSessionDataTaskDidReceiveData(session, dataTask, data) {
+				URLSessionTaskNeedNewBodyStream(session, task, need) {
+					console.log("URLSessionTaskNeedNewBodyStream");
+				}
 
-			console.log("URLSessionDataTaskDidReceiveData");
-	}
+				URLSessionTaskWillPerformHTTPRedirectionNewRequestCompletionHandler(session, task, redirect, request, completionHandler) {
+					console.log("URLSessionTaskWillPerformHTTPRedirectionNewRequestCompletionHandler");
+					completionHandler(request);
+				}
 
-	URLSessionDataTaskWillCacheResponseCompletionHandler() {
-		console.log("URLSessionDataTaskWillCacheResponseCompletionHandler");
-	}
+				// NSURLSessionDataDelegate
+				URLSessionDataTaskDidReceiveResponseCompletionHandler(session, dataTask, response, completionHandler) {
+					console.log("URLSessionDataTaskDidReceiveResponseCompletionHandler");
+					var disposition = null;
+					completionHandler(disposition);
+				}
 
-	// NSURLSessionDownloadDelegate
-	URLSessionDownloadTaskDidResumeAtOffsetExpectedTotalBytes(session, task, offset, expects) {
-		console.log("URLSessionDownloadTaskDidResumeAtOffsetExpectedTotalBytes");
-	}
+				URLSessionDataTaskDidBecomeDownloadTask(session, dataTask, downloadTask) {
+					console.log("URLSessionDataTaskDidBecomeDownloadTask");
+				}
 
-	URLSessionDownloadTaskDidWriteDataTotalBytesWrittenTotalBytesExpectedToWrite(session, task, data, written, expected) {
-		console.log("URLSessionDownloadTaskDidWriteDataTotalBytesWrittenTotalBytesExpectedToWrite");
-	}
+				URLSessionDataTaskDidReceiveData(session, dataTask, data) {
 
-	URLSessionDownloadTaskDidFinishDownloadingToURL(session, task, url) {
-		console.log("URLSessionDownloadTaskDidFinishDownloadingToURL");
-        console.log(session);
-        console.log(task);
-        console.log(url);
-        
+					console.log("URLSessionDataTaskDidReceiveData");
+				}
+
+				URLSessionDataTaskWillCacheResponseCompletionHandler() {
+					console.log("URLSessionDataTaskWillCacheResponseCompletionHandler");
+				}
+
+				// NSURLSessionDownloadDelegate
+				URLSessionDownloadTaskDidResumeAtOffsetExpectedTotalBytes(session, task, offset, expects) {
+					console.log("URLSessionDownloadTaskDidResumeAtOffsetExpectedTotalBytes");
+				}
+
+				URLSessionDownloadTaskDidWriteDataTotalBytesWrittenTotalBytesExpectedToWrite(session, task, data, written, expected) {
+					console.log("URLSessionDownloadTaskDidWriteDataTotalBytesWrittenTotalBytesExpectedToWrite");
+				}
+
+				URLSessionDownloadTaskDidFinishDownloadingToURL(session, task, url) {
+					console.log("URLSessionDownloadTaskDidFinishDownloadingToURL");
+					console.log(session);
+					console.log(task);
+					console.log(url);
+				}
+			}
+
+
+			let config = NSURLSessionConfiguration.backgroundSessionConfigurationWithIdentifier("org.nativescript.sample");
+			var delegate = BackgroundUploadDelegate.alloc().init();
+			let session = NSURLSession.sessionWithConfigurationDelegateDelegateQueue(config, delegate, null);
+			console.log(session);
+			let url = NSURL.URLWithString("https://httpbin.org/image");
+			let task = session.downloadTaskWithURL(url);
+			task.resume();
+		} else {
+			console.log("Android");
+		}
 	}
 }
