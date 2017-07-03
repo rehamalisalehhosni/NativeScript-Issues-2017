@@ -1,6 +1,5 @@
 <StackLayout class="page">
     <Button text="writeSync" (tap)="writeSync()"></Button>
-    <Button text="readSync" (tap)="readSync()"></Button>
     <ListView [items]="items" class="list-group">
         <ng-template let-item="item">
             <Label [nsRouterLink]="['/item', item.id]" [text]="item.name"
