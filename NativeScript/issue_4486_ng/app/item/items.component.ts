@@ -4,6 +4,8 @@ import { Item } from "./item";
 import { ItemService } from "./item.service";
 import * as fs from "file-system";
 
+import * as base64 from "base-64";
+
 @Component({
     selector: "ns-items",
     moduleId: module.id,
@@ -23,7 +25,7 @@ export class ItemsComponent implements OnInit {
     writeSync() {
         let documents = fs.knownFolders.documents();
         let path = fs.path.join(documents.path, "base.txt");
-        let contents = "sample text content";
+        let contents = base64.decode("c2FtcGxlIGJhc2U2NCBzdHJpbmc=");
         let file = fs.File.fromPath(path);
         let error;
 
@@ -32,12 +34,4 @@ export class ItemsComponent implements OnInit {
             console.log(contents);
         });
     }
-
-    readSync() {
-        var destinationFile = fs.knownFolders.documents().getFile("base.txt");
-
-        var source = destinationFile.readSync();
-        console.log(source);
-    }
-
 }
