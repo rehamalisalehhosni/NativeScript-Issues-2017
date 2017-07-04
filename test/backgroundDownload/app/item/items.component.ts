@@ -5,6 +5,9 @@ import { ItemService } from "./item.service";
 
 import { isAndroid, isIOS } from "platform";
 
+declare var NNSObject, NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, NSURLSessionConfiguration, NSURL : any;
+
+
 @Component({
 	selector: "ns-items",
 	moduleId: module.id,
