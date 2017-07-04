@@ -11,7 +11,7 @@ var viewModel = new observable_1.Observable();
 
 viewModel.set("myItems", myImagePaths);
 
-exports.pageLoaded = function(args) {
+exports.navigatedTo = function(args) {
     readFiles();
     var page = args.object;
     page.bindingContext = viewModel;
