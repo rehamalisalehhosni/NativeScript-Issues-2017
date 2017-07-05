@@ -11,23 +11,23 @@ export class ItemService {
 
     constructor(private http: Http) { }
 
-    binaryRequest() {
-        let options = this.createOptionssAB();
+binaryRequest() {
+    let options = this.createOptionssAB();
 
-        return this.http.get("https://httpbin.org/stream-bytes/55", options)
-            .subscribe((res: Response) => {
-                console.log("status: " + res.status);
-                console.log("arrayBuffer: " + res.arrayBuffer);
-                return res.arrayBuffer;
-            })
-    }
+    return this.http.get("https://httpbin.org/stream-bytes/55", options)
+        .subscribe((res: Response) => {
+            console.log("status: " + res.status);
+            console.log("arrayBuffer: " + res.arrayBuffer);
+            return res.arrayBuffer;
+        })
+}
 
-    private createOptionssAB() {
-        let requestOptions = new RequestOptions();
+private createOptionssAB() {
+    let requestOptions = new RequestOptions();
 
-        requestOptions.responseType = ResponseContentType.ArrayBuffer; // if this is set to ResponseContentType.Json ит воулд ворк
+    requestOptions.responseType = ResponseContentType.ArrayBuffer; // if this is set to ResponseContentType.Json ит воулд ворк
 
-        return requestOptions;
-    }
+    return requestOptions;
+}
 
 }
