@@ -22,16 +22,50 @@ export class ItemsComponent implements OnInit {
         this.items = this.itemService.getItems();
     }
 
-    writeSync() {
+    writeSText() {
         let documents = fs.knownFolders.documents();
         let path = fs.path.join(documents.path, "base.txt");
         let contents = base64.decode("c2FtcGxlIGJhc2U2NCBzdHJpbmc=");
         let file = fs.File.fromPath(path);
         let error;
 
-        file.writeSync(contents, (e) => {
-            console.log("writeSync");
-            console.log(contents);
+
+        file.writeText(contents).then(res => {
+            file.readText().then(cont => {
+                console.log(cont);
+            })
         });
+    }
+
+    writeSync() {
+        let documents = fs.knownFolders.documents();
+        let path = fs.path.join(documents.path, "base.txt");
+        let file = fs.File.fromPath(path);
+
+        var source = file.readSync(e => { console.log(e) });
+
+        let destPath = fs.path.join(documents.path, "dest.txt");
+        let destinationFile = fs.File.fromPath(destPath);
+        destinationFile.writeSync(source, e => { console.log(e) });
+
+        setTimeout(function() {
+            destinationFile.readText().then(content => {
+                console.log(content);
+            })
+        }, 500);
+    }
+
+    readFile() {
+        let documents = fs.knownFolders.documents();
+        let myFile = documents.getFile("base.txt");
+
+        let source = myFile.readSync(e => { console.log(e) });
+    }
+
+    checkIfFileExists() {
+        let documents = fs.knownFolders.documents();
+        var filePath = fs.path.join(documents.path, "base.txt");
+
+        console.log(fs.File.exists(filePath));
     }
 }
