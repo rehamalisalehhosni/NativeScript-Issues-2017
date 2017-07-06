@@ -15,6 +15,12 @@ export function loaded(args) {
     console.log("Loaded");
     let color = new Color("#FF0000");
 
-    console.log(args.object.nativeView.getThumbDrawable());
-    args.object.nativeView.getThumbDrawable().setColorFilter(color.android, android.graphics.PorterDuff.Mode.SRC_IN);
+    if (android.os.Build.VERSION.SDK_INT > 19) {
+        console.log(args.object.nativeView.getThumbDrawable());
+        args.object.nativeView.getThumbDrawable().setColorFilter(color.android, android.graphics.PorterDuff.Mode.SRC_IN);
+    } else if (android.os.Build.VERSION.SDK_INT <= 19) {
+        // implement the logic for the  KITKAT drawable 
+        console.log("on API 19");
+        console.log(args.object.nativeView.getThumbDrawable());
+    }
 }
