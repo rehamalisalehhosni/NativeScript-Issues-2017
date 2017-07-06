@@ -14,9 +14,9 @@ function navigatingTo(args) {
     radList.items = [1, 2, 3, 4, 5, 6.6];
     radList.selectionBehavior = "Press";
     radList.itemTemplate = "<label text='{{ $value }}' />";
-    var linearLayout = new listview_1.ListViewLinearLayout();
-    linearLayout.scrollDirection = "Horizontal";
-    radList.listViewLayout = linearLayout;
+var linearLayout = new listview_1.ListViewLinearLayout();
+linearLayout.scrollDirection = "Horizontal";
+radList.listViewLayout = linearLayout;
     container.addChild(radList);
     page.bindingContext = new main_view_model_1.HelloWorldModel();
 }

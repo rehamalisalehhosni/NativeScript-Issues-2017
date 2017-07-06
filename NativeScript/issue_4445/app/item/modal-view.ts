@@ -1,5 +1,5 @@
 import { Component, OnInit, NgModule } from "@angular/core";
-import { ModalDialogParams } from "nativescript-angular/modal-dialog";
+import { ModalDialogParams, ModalDialogHost } from "nativescript-angular/modal-dialog";
 import { DatePicker } from "ui/date-picker";
 import { Page } from "ui/page";
 
@@ -21,6 +21,11 @@ export class ModalViewComponent implements OnInit {
         datePicker.day = this.currentdate.getDate();
         datePicker.minDate = new Date(1975, 0, 29);
         datePicker.maxDate = new Date(2045, 4, 12);
+
+        this.page.on("unloaded", () => {
+            console.log("unloaded")
+            this.params.closeCallback(datePicker.date);
+        })
     }
 
     public submit() {

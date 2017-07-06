@@ -23,7 +23,8 @@ if (applicationModule.android) {
     ],
     imports: [
         NativeScriptModule,
-        AppRoutingModule
+        AppRoutingModule,
+        TNSFrescoModule
     ],
     declarations: [
         AppComponent,

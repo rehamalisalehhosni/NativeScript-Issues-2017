@@ -4,7 +4,10 @@
   "readme": "NativeScript Application",
   "repository": "<fill-your-repository-here>",
   "nativescript": {
-    "id": "org.nativescript.issue4478"
+    "id": "org.nativescript.issue4478",
+    "tns-android": {
+      "version": "3.1.1"
+    }
   },
   "dependencies": {
     "@angular/animations": "~4.1.0",
@@ -25,8 +28,12 @@
   "devDependencies": {
     "@angular/compiler-cli": "~4.1.0",
     "@ngtools/webpack": "~1.4.0",
+    "babel-traverse": "6.4.5",
+    "babel-types": "6.4.5",
+    "babylon": "6.4.5",
     "copy-webpack-plugin": "~4.0.1",
     "extract-text-webpack-plugin": "~2.1.0",
+    "lazy": "1.0.11",
     "nativescript-css-loader": "~0.26.0",
     "nativescript-dev-typescript": "~0.5.0",
     "nativescript-dev-webpack": "^0.7.1",

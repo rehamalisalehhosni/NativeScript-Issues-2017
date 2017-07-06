@@ -6,6 +6,8 @@ import { ItemService } from "./item.service";
 import { Label } from "ui/label";
 import { TabView, TabViewItem } from "ui/tab-view";
 
+import { TabViewItemDirective } from "nativescript-angular";
+
 @Component({
     selector: "ns-items",
     moduleId: module.id,
@@ -14,6 +16,8 @@ import { TabView, TabViewItem } from "ui/tab-view";
 export class ItemsComponent implements OnInit {
     items: Item[];
     isLoggedIn: boolean = false;
+
+    tabView: TabView;
 
     constructor(private itemService: ItemService) { }
 
@@ -26,15 +30,6 @@ export class ItemsComponent implements OnInit {
     }
 
     onTabLoaded(args) {
-        let tabView = <TabView>args.object;
-        console.log("onTabLoaded " + tabView);
-
-        var tabViewItem = new TabViewItem();
-        tabViewItem.title = "some";
-        var lbl = new Label();
-        lbl.text = "test";
-        tabViewItem.view = lbl;
-
-        tabView.items.push(tabViewItem);
+        this.tabView = args.object;
     }
 }

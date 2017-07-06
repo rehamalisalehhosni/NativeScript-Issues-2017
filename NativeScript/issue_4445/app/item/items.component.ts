@@ -1,4 +1,4 @@
-import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/modal-dialog";
+import { ModalDialogService, ModalDialogOptions, ModalDialogParams, ModalDialogHost } from "nativescript-angular/modal-dialog";
 import { Component, ViewContainerRef } from "@angular/core";
 import { DatePicker } from "ui/date-picker";
 import { ModalViewComponent } from "./modal-view";
@@ -23,6 +23,8 @@ export class ItemsComponent {
         this.date = new Date();
         this.days = Math.round(Math.abs((this.startDate.getTime() - this.endDate.getTime()) / (oneDay)));
         this.weekday = this.weekdays[this.date.getDay()];
+
+        
     }
 
     createModelView(args) {
@@ -36,6 +38,7 @@ export class ItemsComponent {
         // >> returning-result
         this._modalService.showModal(ModalViewComponent, options)
             .then((dateresult: Date) => {
+                
                 console.log("date result " + dateresult);
                 // >> (hide)
                 if (args === "start") {
@@ -49,6 +52,7 @@ export class ItemsComponent {
                 // << (hide)
             });
         // << returning-result
+
     }
 
     findDays() {

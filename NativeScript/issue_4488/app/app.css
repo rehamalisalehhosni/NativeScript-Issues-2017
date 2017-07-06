@@ -1,6 +1,11 @@
 @import 'nativescript-theme-core/css/core.light.css';
 
-ActionBar {
+/*ActionBar {
     background-color: red;
+    color: white;
+}*/
+
+.priority-style {
+    background-color: blue;
     color: white;
 }
