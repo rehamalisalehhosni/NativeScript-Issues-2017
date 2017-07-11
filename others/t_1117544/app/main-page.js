@@ -8,9 +8,6 @@ var myImagePaths = new ObservableArray();
 
 var viewModel = new observable_1.Observable();
 
-
-viewModel.set("myItems", myImagePaths);
-
 exports.navigatedTo = function(args) {
     readFiles();
     var page = args.object;
@@ -28,11 +25,13 @@ exports.lvloaded = lvloaded;
 function readFiles() {
     var documents = fs.knownFolders.currentApp();
     var myFolder = documents.getFolder("images");
-
     var arr = myFolder.getEntitiesSync();
-    console.log(arr.length);
+
+    myImagePaths = new ObservableArray();
 
     arr.forEach(function (element) {
         myImagePaths.push({path: element._path});
     });
+
+    viewModel.set("myItems", myImagePaths);
 }
