@@ -26,30 +26,13 @@ function lvloaded(args) {
 exports.lvloaded = lvloaded;
 
 function readFiles() {
+    var documents = fs.knownFolders.currentApp();
+    var myFolder = documents.getFolder("images");
 
-    myImagePaths.push({path: "~/images/cosmos.jpg"});
-    myImagePaths.push({path: "~/images/nan.png"});
-    myImagePaths.push({path: "~/images/ninja.png"});
-    myImagePaths.push({path: "~/images/logo.png"});
+    var arr = myFolder.getEntitiesSync();
+    console.log(arr.length);
 
-    myImagePaths.push({path: "~/images/cosmos.jpg"});
-    myImagePaths.push({path: "~/images/nan.png"});
-    myImagePaths.push({path: "~/images/ninja.png"});
-    myImagePaths.push({path: "~/images/logo.png"});
-
-    myImagePaths.push({path: "~/images/cosmos.jpg"});
-    myImagePaths.push({path: "~/images/nan.png"});
-    myImagePaths.push({path: "~/images/ninja.png"});
-    myImagePaths.push({path: "~/images/logo.png"});
-
-    myImagePaths.push({path: "~/images/cosmos.jpg"});
-    myImagePaths.push({path: "~/images/nan.png"});
-    myImagePaths.push({path: "~/images/ninja.png"});
-    myImagePaths.push({path: "~/images/logo.png"});
-
-    myImagePaths.push({path: "~/images/cosmos.jpg"});
-    myImagePaths.push({path: "~/images/nan.png"});
-    myImagePaths.push({path: "~/images/ninja.png"});
-    myImagePaths.push({path: "~/images/logo.png"});
-
+    arr.forEach(function (element) {
+        myImagePaths.push({path: element._path});
+    });
 }
