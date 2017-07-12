@@ -16,7 +16,7 @@
             swipeActions="true">
 
             <lv:RadListView.listViewLayout>
-                 <lv:ListViewLinearLayout scrollDirection="Vertical" itemInsertAnimation="Default" itemDeleteAnimation="Slide"/>
+                 <lv:ListViewLinearLayout scrollDirection="Vertical" itemInsertAnimation="Default" itemDeleteAnimation="Scale"/>
             </lv:RadListView.listViewLayout>
 
             <lv:RadListView.itemTemplate>
@@ -28,7 +28,7 @@
             </lv:RadListView.itemTemplate>
 
             <lv:RadListView.itemSwipeTemplate>
-                <GridLayout columns="150, *, 150" backgroundColor="White">
+                <GridLayout columns="*, *, *" backgroundColor="White">
                     <StackLayout id="mark-view" col="0" style="background-color: blue;" tap="onLeftSwipeClick" paddingLeft="16" paddingRight="16" orientation="horizontal">
                         <Label text="mark" style="text-size: 20" verticalAlignment="center" horizontalAlignment="center"/>
                     </StackLayout>
