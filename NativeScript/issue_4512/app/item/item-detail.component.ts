@@ -4,6 +4,8 @@ import { ActivatedRoute } from "@angular/router";
 import { Item } from "./item";
 import { ItemService } from "./item.service";
 
+import { RouterExtensions } from "nativescript-angular/router";
+
 @Component({
     selector: "ns-details",
     moduleId: module.id,
@@ -12,7 +14,7 @@ import { ItemService } from "./item.service";
 export class ItemDetailComponent implements OnInit {
     item: Item;
 
-    constructor(
+    constructor(private routerExtensions: RouterExtensions,
         private itemService: ItemService,
         private route: ActivatedRoute
     ) { }
@@ -20,5 +22,9 @@ export class ItemDetailComponent implements OnInit {
     ngOnInit(): void {
         const id = +this.route.snapshot.params["id"];
         this.item = this.itemService.getItem(id);
+    }
+
+    goBack() {
+        this.routerExtensions.back();
     }
 }
