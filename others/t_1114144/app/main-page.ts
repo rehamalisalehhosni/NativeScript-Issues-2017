@@ -18,10 +18,17 @@ export function onSwipeCellProgressChanged(args: listViewModule.SwipeActionsEven
     var swipeLimits = args.data.swipeLimits;
     var currentItemView = args.object;
 
+
     if (args.data.x > 200) {
         console.log("Notify perform left action");
     } else if (args.data.x < -200) {
         console.log("Notify perform right action");
+
+        // we could delete the item when the user swipes over the rule above (n else if)
+        
+        // var listView = <listViewModule.RadListView>frameModule.topmost().currentPage.getViewById("listView");
+        // var viewModel: viewModel.ViewModel = <viewModel.ViewModel>listView.bindingContext;
+        // viewModel.dataItems.splice(args.index, 1);
     }
 }
 // << listview-swipe-action-release-notify
@@ -47,13 +54,13 @@ export function onSwipeCellFinished(args: listViewModule.SwipeActionsEventData) 
 }
 
 export function onLeftSwipeClick(args: listViewModule.ListViewEventData) {
-     var listView = <listViewModule.RadListView>frameModule.topmost().currentPage.getViewById("listView");
+    var listView = <listViewModule.RadListView>frameModule.topmost().currentPage.getViewById("listView");
     console.log("Left swipe click");
     listView.notifySwipeToExecuteFinished();
 }
 
 export function onRightSwipeClick(args) {
-     var listView = <listViewModule.RadListView>frameModule.topmost().currentPage.getViewById("listView");
+    var listView = <listViewModule.RadListView>frameModule.topmost().currentPage.getViewById("listView");
     console.log("Right swipe click");
     var viewModel: viewModel.ViewModel = <viewModel.ViewModel>listView.bindingContext;
     viewModel.dataItems.splice(viewModel.dataItems.indexOf(args.object.bindingContext), 1);
