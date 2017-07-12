@@ -35,12 +35,15 @@ export function onSwipeCellStarted(args: listViewModule.SwipeActionsEventData) {
     swipeLimits.left = leftItem.getMeasuredWidth();
     swipeLimits.right = rightItem.getMeasuredWidth();
     swipeLimits.threshold = leftItem.getMeasuredWidth() / 1.4;
-    
+
 }
 // << listview-swipe-action-release-limits
 
 // >> listview-swipe-action-release-execute
 export function onSwipeCellFinished(args: listViewModule.SwipeActionsEventData) {
+    var listView = <listViewModule.RadListView>frameModule.topmost().currentPage.getViewById("listView");
+    console.log("onSwipeCellFinished");
+
 }
 
 export function onLeftSwipeClick(args: listViewModule.ListViewEventData) {
