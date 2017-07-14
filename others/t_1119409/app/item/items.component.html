@@ -1,0 +1,12 @@
+<FlexboxLayout flexDirection="column" backgroundColor="#103F69">
+    <Label text="Activity Distance Line Chart" height="150"></Label>
+    <RadCartesianChart tkExampleTitle tkToggleNavButton>
+        <DateTimeCategoricalAxis tkCartesianHorizontalAxis dateFormat="MM/dd/YYYY" labelFitMode="Rotate" labelRotationAngle="-1.2"
+            labelTextColor="White" lineColor="White"></DateTimeCategoricalAxis>
+        <LinearAxis tkCartesianVerticalAxis majorStep="1" labelTextColor="White" lineColor="White"></LinearAxis>
+        <LineSeries tkCartesianSeries [items]="chartData" categoryProperty="{{categoryAxisField}}" valueProperty="{{valueAxisField}}"></LineSeries>
+        <RadCartesianChartGrid tkCartesianGrid horizontalLinesVisible="true" horizontalStrokeColor="White" horizontalStrokeWidth="1"></RadCartesianChartGrid>
+        <LineSeries tkCartesianSeries [items]="chartData" categoryProperty="{{categoryAxisField}}" valueProperty="Duration" lineColor="Green"></LineSeries>
+    </RadCartesianChart>
+    <Button id="button" text="Next" height="150" [nsRouterLink]="[ '/activityStepBarChart'] "></Button>
+</FlexboxLayout>
