@@ -1,28 +1,29 @@
 <GridLayout rows="auto, *, auto, auto">
-	<!--<Label text="ala bala 1" (tap)="onSelect({id:1, data:'ala bala'})" textWrap="true"></Label>-->
+
 	
-	<RadListView row="1" class="list-group " [items]="items" loadOnDemandMode="Auto" (loadMoreDataRequested)="onLoadMoreItemsRequested($event)">
-		<template let-item="item" tkListItemTemplate>
-				<GridLayout class="list-group-item" (tap)="onSelect(item)" rows="auto, auto, auto">
-					<GridLayout columns="auto, 10, *">
-						<Image class="image" width="60" height="50" [src]="item.data.Photo | nsImage:['everlive', service.provider.instance]"></Image>
-						<Label textWrap="true" [text]="item.data.CallRef4D"></Label>
-						<StackLayout col="3">
-							<Label class="list-group-item-heading" textWrap="true" [text]="item.data.Description"></Label>
-							<Label *ngIf="item.data.oBuilding" class="list-group-item-text" textWrap="true" [text]="item.data.oBuilding.Name"></Label>
-						</StackLayout>
-					</GridLayout>
-					<GridLayout row="1">
+<RadListView row="1" class="list-group " [items]="items" loadOnDemandMode="Auto" (loadMoreDataRequested)="onLoadMoreItemsRequested($event)">
 
-					</GridLayout>
-					<StackLayout row="2" class="hr-light"></StackLayout>
+	<template let-item="item" tkListItemTemplate>
+			<GridLayout class="list-group-item" (tap)="onSelect(item)" rows="auto, auto, auto">
+				<GridLayout columns="auto, 10, *">
+					<Image class="image" width="60" height="50" [src]="item.data.Photo | nsImage:['everlive', service.provider.instance]"></Image>
+					<Label textWrap="true" [text]="item.data.CallRef4D"></Label>
+					<StackLayout col="3">
+						<Label class="list-group-item-heading" textWrap="true" [text]="item.data.Description"></Label>
+						<Label *ngIf="item.data.oBuilding" class="list-group-item-text" textWrap="true" [text]="item.data.oBuilding.Name"></Label>
+					</StackLayout>
 				</GridLayout>
-				
-		</template>
+				<GridLayout row="1">
 
-		<ListViewLinearLayout tkListViewLayout scrollDirection="Vertical" itemInsertAnimation="Default"></ListViewLinearLayout>
+				</GridLayout>
+				<StackLayout row="2" class="hr-light"></StackLayout>
+			</GridLayout>
+			
+	</template>
 
-	</RadListView>
+	<ListViewLinearLayout tkListViewLayout scrollDirection="Vertical" itemInsertAnimation="Default"></ListViewLinearLayout>
+
+</RadListView>
 
 	<GridLayout row="2">
 		<Button class="btn btn-primary" text="Add" (tap)="onAdd()"></Button>

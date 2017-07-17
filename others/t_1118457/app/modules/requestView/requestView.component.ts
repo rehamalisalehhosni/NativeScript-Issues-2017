@@ -156,8 +156,6 @@ export class RequestViewComponent
 	}
 
 	onSelect(args) {
-		console.log("onSelect")
-		console.dir(args);
 
 		this._currentItem$.next(args.item);
 		
