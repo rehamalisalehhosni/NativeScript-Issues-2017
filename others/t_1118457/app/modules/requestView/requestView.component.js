@@ -103,8 +103,6 @@ var RequestViewComponent = (function () {
         });
     };
     RequestViewComponent.prototype.onSelect = function (args) {
-        console.log("onSelect");
-        console.dir(args);
         this._currentItem$.next(args.item);
         this.onNavigate(shared.Modes.DETAIL);
     };
