@@ -5,6 +5,8 @@ import viewModule = require('tns-core-modules/ui/core/view');
 import frameModule = require("tns-core-modules/ui/frame");
 import utilsModule = require("tns-core-modules/utils/utils");
 
+import { Label } from "ui/label";
+
 export function onPageLoaded(args) {
     var page = args.object;
 
@@ -18,6 +20,11 @@ export function onSwipeCellProgressChanged(args: listViewModule.SwipeActionsEven
     var swipeLimits = args.data.swipeLimits;
     var currentItemView = args.object;
 
+    console.log("args.swipeView: " + args.swipeView);
+    var swipeView = args.swipeView;
+
+    var lbl = args.swipeView.getViewById("lbl") as Label;
+    console.log("onSwipeCellProgressChanged lbl: " + lbl);
 
     if (args.data.x > 200) {
         console.log("Notify perform left action");
@@ -25,7 +32,7 @@ export function onSwipeCellProgressChanged(args: listViewModule.SwipeActionsEven
         console.log("Notify perform right action");
 
         // we could delete the item when the user swipes over the rule above (n else if)
-        
+
         // var listView = <listViewModule.RadListView>frameModule.topmost().currentPage.getViewById("listView");
         // var viewModel: viewModel.ViewModel = <viewModel.ViewModel>listView.bindingContext;
         // viewModel.dataItems.splice(args.index, 1);

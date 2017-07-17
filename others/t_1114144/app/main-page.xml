@@ -33,7 +33,7 @@
                         <Label text="mark" style="text-size: 20" verticalAlignment="center" horizontalAlignment="center"/>
                     </StackLayout>
                     <StackLayout id="delete-view" col="2" style="background-color: red;" tap="onRightSwipeClick"  paddingLeft="16" paddingRight="16" orientation="horizontal">
-                        <Label text="delete" style="text-size: 20" verticalAlignment="center" horizontalAlignment="center" />
+                        <Label text="delete" id="lbl" style="text-size: 20" verticalAlignment="center" horizontalAlignment="center" />
                     </StackLayout>
                 </GridLayout>
             </lv:RadListView.itemSwipeTemplate>
