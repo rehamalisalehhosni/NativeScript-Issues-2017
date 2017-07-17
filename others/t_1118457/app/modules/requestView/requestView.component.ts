@@ -156,7 +156,11 @@ export class RequestViewComponent
 	}
 
 	onSelect(args) {
+		console.log("onSelect")
+		console.dir(args);
+
 		this._currentItem$.next(args.item);
+		
 		this.onNavigate(shared.Modes.DETAIL);
 	}
 
@@ -246,8 +250,7 @@ export class RequestViewComponent
 	}
 
 	onNavigateBack() {
-
-		this.onNavigate(this._mode === shared.Modes.EDIT ? shared.Modes.DETAIL : shared.Modes.LIST);
+		this.onNavigate(this._mode === shared.Modes.EDIT && false ? shared.Modes.DETAIL : shared.Modes.LIST);
 
 	}
 

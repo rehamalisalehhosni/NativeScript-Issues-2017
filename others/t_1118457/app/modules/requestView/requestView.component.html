@@ -1,11 +1,8 @@
-<ns-action-bar [title]="title" [showBack]="mode != modes.LIST" (back)="onNavigateBack($event)" <!--- component view navigation directive --->
+<ns-action-bar [title]="title" [showBack]="mode != modes.LIST || true" (back)="onNavigateBack($event)"></ns-action-bar>
 
-    ></ns-action-bar>
+<StackLayout>
 
-
-<GridLayout>
-
-    <GridLayout *ngIf="mode == modes.LIST">
+    <GridLayout *ngIf="mode == modes.LIST" >
         <ns-requestView-list [items]="items$" [service]="service" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)" (loadMore)="onLoadMoreItemsRequested($event)" (filterChanged)="onListFilterChanged($event)">
         </ns-requestView-list>
     </GridLayout>
@@ -28,7 +25,7 @@
         </ns-requestView-edit>
     </GridLayout>
 
-</GridLayout>
+</StackLayout>
 <!-- additional view content -->
 
 <!-- START_CUSTOM_CODE_requestView -->

@@ -103,6 +103,8 @@ var RequestViewComponent = (function () {
         });
     };
     RequestViewComponent.prototype.onSelect = function (args) {
+        console.log("onSelect");
+        console.dir(args);
         this._currentItem$.next(args.item);
         this.onNavigate(shared.Modes.DETAIL);
     };
@@ -161,7 +163,7 @@ var RequestViewComponent = (function () {
         });
     };
     RequestViewComponent.prototype.onNavigateBack = function () {
-        this.onNavigate(this._mode === shared.Modes.EDIT ? shared.Modes.DETAIL : shared.Modes.LIST);
+        this.onNavigate(this._mode === shared.Modes.EDIT && false ? shared.Modes.DETAIL : shared.Modes.LIST);
     };
     RequestViewComponent.prototype.onNavigate = function (mode) {
         if (mode === shared.Modes.ADD) {

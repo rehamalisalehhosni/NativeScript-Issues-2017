@@ -1,12 +1,8 @@
 <GridLayout rows="auto, *, auto, auto">
-	<android><TabView row="0" selectedIndex="0" (selectedIndexChange)="onIndexChanged($event)">
-		<StackLayout *tabItem="{title: 'All'}"></StackLayout>
-		<StackLayout *tabItem="{title: 'Mine'}"></StackLayout>
-		<StackLayout *tabItem="{title: 'My Building'}"></StackLayout>
-	</TabView></android>
+	<!--<Label text="ala bala 1" (tap)="onSelect({id:1, data:'ala bala'})" textWrap="true"></Label>-->
+	
 	<RadListView row="1" class="list-group " [items]="items" loadOnDemandMode="Auto" (loadMoreDataRequested)="onLoadMoreItemsRequested($event)">
-		<!--pullToRefresh="true">-->
-		<ListViewLinearLayout tkListViewLayout scrollDirection="Vertical" itemInsertAnimation="Default"> <template tkListItemTemplate let-item="item">
+		<template let-item="item" tkListItemTemplate>
 				<GridLayout class="list-group-item" (tap)="onSelect(item)" rows="auto, auto, auto">
 					<GridLayout columns="auto, 10, *">
 						<Image class="image" width="60" height="50" [src]="item.data.Photo | nsImage:['everlive', service.provider.instance]"></Image>
@@ -17,16 +13,22 @@
 						</StackLayout>
 					</GridLayout>
 					<GridLayout row="1">
-						<!--- master detail form -->
+
 					</GridLayout>
 					<StackLayout row="2" class="hr-light"></StackLayout>
 				</GridLayout>
-			</template> </ListViewLinearLayout>
+				
+		</template>
+
+		<ListViewLinearLayout tkListViewLayout scrollDirection="Vertical" itemInsertAnimation="Default"></ListViewLinearLayout>
+
 	</RadListView>
+
 	<GridLayout row="2">
 		<Button class="btn btn-primary" text="Add" (tap)="onAdd()"></Button>
 	</GridLayout>
-	<ios><TabView row="3" selectedIndex="0" (selectedIndexChange)="onIndexChanged($event)">
+
+	<TabView row="3" selectedIndex="0" (selectedIndexChange)="onIndexChanged($event)">
 		<StackLayout *tabItem="{title: 'All'}">
 			<Label text="Test"></Label>
 			<Label text="Test"></Label>
@@ -39,7 +41,7 @@
 			<Label text="Test"></Label>
 			<Label text="Test"></Label>
 		</StackLayout>
-	</TabView></ios>
+	</TabView>
 	<ActivityIndicator class="activity-indicator" rowSpan="2" [busy]="!items.length" [visibility]="items.length ? 'collapse' : 'visible'">
 	</ActivityIndicator>
 </GridLayout>
