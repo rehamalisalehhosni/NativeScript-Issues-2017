@@ -7,7 +7,7 @@ https://docs.nativescript.org/ui/components.
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
 <ScrollView> 
     <StackLayout> 
-        <Button text="tap" touch="{{ onTouch }}"></Button> 
+        <Button text="tap" touch="{{ onTouch }}" tap="{{ onTap }}" ></Button> 
     </StackLayout> 
 </ScrollView>
 </Page>

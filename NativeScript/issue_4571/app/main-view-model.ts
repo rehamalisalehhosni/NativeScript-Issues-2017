@@ -30,6 +30,10 @@ export class HelloWorldModel extends Observable {
         this.updateMessage();
     }
 
+    public onTap() {
+        console.log("onTap");
+    }
+
     private updateMessage() {
         if (this._counter <= 0) {
             this.message = 'Hoorraaay! You unlocked the NativeScript clicker achievement!';
