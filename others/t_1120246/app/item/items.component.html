@@ -1,4 +1,4 @@
-<GridLayout columns="20, auto" rows="20,50,auto,20,50" backgroundColor="#103F69">
+<GridLayout columns="20, auto" rows="20,50,*,20,50" backgroundColor="#103F69">
     <Label text="Line Chart" row="0" colspan="2" color="#ffffff"></Label>
     <FlexboxLayout row="1" colspan="2" textAlignment="center">
         <Button id="button" text="Day" (tap)="dayClick()" row="3" colspan="2" width="80"></Button>
@@ -24,6 +24,7 @@
             <PaletteEntry tkCartesianPaletteEntry strokeColor="White" strokeWidth="3"></PaletteEntry>
         </Palette>
     </RadCartesianChart>
+
     <Label text="{{majorStep}}" row="3" colspan="2" color="#ffffff" textAlignment="center"></Label>
 
 </GridLayout>
