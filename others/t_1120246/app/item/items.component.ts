@@ -64,10 +64,11 @@ export class ItemsComponent implements OnInit {
         ];
     }
     monthClick() {
-        this.dateFormat = "MM/YYYY";
-        this.majorStep = "Month";
+        this.dateFormat = "MM";
+        
         this.minDate = "01/06/2017";
         this.maxDate = "01/10/2017";
+        this.majorStep = "Month";
         this.chartData = [
             { MeasurementDate: "2017-06-01T00:00:00.000Z", Duration: 7, DistanceKM: 1.83, DistanceMiles: 1.6 },
             { MeasurementDate: "2017-07-01T00:00:00.000Z", Duration: 7, DistanceKM: 2.83, DistanceMiles: 1.6 },
