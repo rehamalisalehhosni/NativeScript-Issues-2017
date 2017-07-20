@@ -1,0 +1,29 @@
+<GridLayout columns="20, auto" rows="20,50,auto,20,50" backgroundColor="#103F69">
+    <Label text="Line Chart" row="0" colspan="2" color="#ffffff"></Label>
+    <FlexboxLayout row="1" colspan="2" textAlignment="center">
+        <Button id="button" text="Day" (tap)="dayClick()" row="3" colspan="2" width="80"></Button>
+        <Button id="button" text="Week" (tap)="weekClick()" row="3" colspan="2" width="80"></Button>
+        <Button id="button" text="Month" (tap)="monthClick()" row="3" colspan="2" width="80"></Button>
+    </FlexboxLayout>
+    <Label col="0" row="2" color="#ffffff" textAlignment="center" class="rotateLabel"></Label>
+
+    <RadCartesianChart tkExampleTitle tkToggleNavButton col="1" row="2" height="450" width="400">
+        <DateTimeContinuousAxis tkCartesianHorizontalAxis [dateFormat]="dateFormat" labelFitMode="Rotate" labelRotationAngle="-1.2" 
+            verticalLocation="Bottom" labelTextColor="White" lineColor="White" plotData="OnTicks" lineThickness="1" [majorStep]="majorStep"
+            [minimum]="minDate" [maximum]="maxDate" ></DateTimeContinuousAxis>
+        <LinearAxis tkCartesianVerticalAxis majorStep="1" labelTextColor="White" lineColor="White" labelFormat="%.0f"></LinearAxis>
+        <LineSeries tkCartesianSeries [items]="chartData" categoryProperty="{{categoryAxisField}}" valueProperty="{{valueAxisField}}"
+            seriesName="distanceLine"></LineSeries>
+        <LineSeries tkCartesianSeries [items]="chartData" categoryProperty="{{categoryAxisField}}" valueProperty="Duration" lineStrokeColor="Green"
+            seriesName="targetLine"></LineSeries>
+        <RadCartesianChartGrid tkCartesianGrid horizontalLinesVisible="true" horizontalStrokeColor="White" horizontalStrokeWidth="1"></RadCartesianChartGrid> 
+        <Palette tkCartesianPalette seriesName="targetLine">
+            <PaletteEntry tkCartesianPaletteEntry fillColor="#ffffff" strokeColor="Green"></PaletteEntry>
+        </Palette>
+        <Palette tkCartesianPalette seriesName="distanceLine">
+            <PaletteEntry tkCartesianPaletteEntry strokeColor="White" strokeWidth="3"></PaletteEntry>
+        </Palette>
+    </RadCartesianChart>
+    <Label text="{{majorStep}}" row="3" colspan="2" color="#ffffff" textAlignment="center"></Label>
+
+</GridLayout>
