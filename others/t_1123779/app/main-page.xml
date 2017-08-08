@@ -1,7 +1,7 @@
-<Page navigatingTo="navigatingTo" xmlns:NACamera="nativescript-na-camera">
+<Page navigatingTo="navigatingTo">
   <StackLayout>
-    <NACamera:Camera id="cameraPreview" />
-    <Button text="Capture" id="capturePhoto" tap="capturePhoto" />
-    <Button text="New photo" id="newPhoto" tap="newPhoto" />
+
+    <Image loaded="onLoaded" id="img" src="~/images/pagoda.jpg" stretch="none" />
+    
   </StackLayout>
 </Page>
