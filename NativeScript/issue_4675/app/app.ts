@@ -7,7 +7,7 @@ purpose of the file is to pass control to the app’s first module.
 import "./bundle-config";
 import * as application from 'application';
 
-application.on(app.launchEvent, (args: app.ApplicationEventData) => {
+application.on(application.launchEvent, (args: application.ApplicationEventData) => {
 	console.log('app.ts -> launchEvent');
 });
 
@@ -22,6 +22,10 @@ application.on(application.suspendEvent, (args: application.ApplicationEventData
 application.on(application.exitEvent, (args: application.ApplicationEventData) => {
 	console.log('app.ts -> exitEvent');
 });
+
+    application.android.on(application.AndroidApplication.activityDestroyedEvent, function (args) {
+        console.log("Event: " + args.eventName + ", Activity: " + args.activity);
+    });
 
 application.start({ moduleName: 'main-page' });
 
