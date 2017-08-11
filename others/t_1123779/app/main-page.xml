@@ -1,7 +1,8 @@
 <Page navigatingTo="navigatingTo">
   <StackLayout>
 
-    <Image loaded="onLoaded" id="img" src="~/images/pagoda.jpg" stretch="none" />
+    <Button text="capturePhoto" tap="capturePhoto" />
+    
     
   </StackLayout>
 </Page>

@@ -13,6 +13,7 @@
     }
   },
   "dependencies": {
+    "nativescript-geolocation": "^3.0.0",
     "nativescript-na-camera": "^1.2.0",
     "nativescript-theme-core": "~1.0.2",
     "tns-core-modules": "~3.1.0"
