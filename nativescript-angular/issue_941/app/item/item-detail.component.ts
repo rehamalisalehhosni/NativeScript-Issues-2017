@@ -5,6 +5,8 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { Item } from "./item";
 import { ItemService } from "./item.service";
 
+import "rxjs/add/operator/map";
+
 @Component({
     selector: "ns-details",
     moduleId: module.id,
@@ -19,12 +21,24 @@ export class ItemDetailComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        const id = +this.route.snapshot.params["id"];
-        this.item = this.itemService.getItem(id);
+        // const id = +this.route.snapshot.params["id"];
+        // this.item = this.itemService.getItem(id);
+
+        this.route.params
+        .map(params => this.itemService.getItem(+params["id"]))
+        .subscribe(item => this.item = item);
     }
 
+    goToItemThree() {
+        console.log("goToNextItem");
+        this.routerExtensions.navigate(['/item', 3]);
+    }
 
-    backTYoPrevious() {
+    backToPrevious() {
         this.routerExtensions.backToPreviousPage();
+    }
+
+    back() {
+        this.routerExtensions.back();
     }
 }
