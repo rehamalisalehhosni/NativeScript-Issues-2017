@@ -1,0 +1,8 @@
+
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+    <ScrollView>
+        <StackLayout backgroundColor="gray" height="1000" class="p-20">
+            <Slider minValue="0" maxValue="1000" value="251" />
+        </StackLayout>
+    </ScrollView>
+</Page>
