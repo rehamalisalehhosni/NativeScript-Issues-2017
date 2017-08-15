@@ -1,8 +1,36 @@
-
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onLoaded" navigatedTo="onNavigatedTo">
     <ScrollView>
-        <StackLayout backgroundColor="gray" height="1000" class="p-20">
-            <Slider minValue="0" maxValue="1000" value="251" />
+        <StackLayout class="searchContent" backgroundColor="gray" height="1500">
+            <Label text="Search Filteration" class="search_title" />
+            <TextField text="{{searchKey" hint="Search Keyword" class="keyword" color="#fff" />
+            <Label text="Projects Starting Price" class="search_title" />
+
+            <Slider minValue="0" maxValue="800" value="100" class="slider"></Slider>
+
+            <GridLayout rows="auto" columns="*, *" class="textslider">
+                <Label row="0" col="0" text="startingPrice.value" class="label1">
+                </Label>
+                <Label row="0" col="1" text="maxPrice.value" class="label2">
+                </Label>
+            </GridLayout>
+
+            <label class="hr" />
+            <Label text="Area From (Sqm)" class="search_title" />
+
+            <Slider minValue="0" maxValue="1000" value="50" valueChange="onSecondSliderChange($event)" class="slider" ></Slider>
+
+            <GridLayout rows="auto" columns="*, *" class="textslider">
+                <Label row="0" col="0" text="areafrom.value" class="label1">
+                </Label>
+                <Label row="0" col="1" text="areato.value" class="label2">
+                </Label>
+            </GridLayout>
+
+            <label class="hr" />
+            <Label text="Project Include" class="search_title" />
+            <Label text="Project Facilities" class="search_title" />
+            <label class="hr" />
+            <label height="100" />
         </StackLayout>
     </ScrollView>
 </Page>
